@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Monument — Fès el-Bali</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="40" height="40"><use href="#zellige-star"></use></svg>
+      </span>
+      <div class="brand-text">
+        <h1>Fès&nbsp;<span class="accent">el-Bali</span></h1>
+        <p>Monuments historiques &amp; itinéraires depuis Bab Boujloud</p>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html#carte">Carte</a>
+      <a href="index.html#liste">Monuments</a>
+    </nav>
+  </div>
+</header>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="zellige-star">
+      <path d="M24 2 L29 17 L45 17 L32 27 L37 43 L24 33 L11 43 L16 27 L3 17 L19 17 Z" fill="currentColor"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="breadcrumb">
+  <a href="index.html">← Retour à la liste des monuments</a>
+</div>
+
+<main class="monument-page">
+  <section class="monument-intro">
+    <span id="m-categorie" class="badge">Catégorie</span>
+    <h2 id="m-nom">Nom du monument</h2>
+    <div id="m-description" class="monument-description">
+      <p>Description…</p>
+    </div>
+    <p id="m-coords" class="monument-coords"></p>
+  </section>
+
+  <section class="route-section">
+    <div class="section-heading">
+      <span class="section-number">→</span>
+      <h3>Itinéraire à pied depuis Bab Boujloud</h3>
+    </div>
+    <p class="route-hint">
+      Le calcul d'itinéraire piéton est fourni à titre indicatif ; la médina
+      compte de nombreuses ruelles trop étroites pour être toutes cartographiées.
+    </p>
+    <div id="route-map" class="leaflet-map"></div>
+  </section>
+
+  <section id="not-found" class="not-found" hidden>
+    <h2>Monument introuvable</h2>
+    <p>Le lien utilisé ne correspond à aucune fiche. Retournez à la liste des monuments.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Site pédagogique des monuments historiques de Fès — hébergement local XAMPP.</p>
+  <p class="footer-author">Auteur : <strong>Mr Ghazi Aziz</strong> — Contact : <a href="mailto:aziz.ghazi40@gmail.com">aziz.ghazi40@gmail.com</a></p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+<script src="js/data.js"></script>
+<script src="js/monument.js"></script>
+</body>
+</html>
