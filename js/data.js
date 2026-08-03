@@ -24,7 +24,7 @@ const MONUMENTS = [
     lat: 34.061667,
     lon: -4.984167,
     image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab%20Bou%20Jeloud.jpg?width=900" ,
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab%20Bou%20Jeloud.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (CC BY-SA 4.0)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Bab_Bou_Jeloud.jpg"
     },
@@ -41,7 +41,7 @@ const MONUMENTS = [
     lat: 34.054167,
     lon: -4.990000,
     image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab_Semmarine_Fez.jpg?width=960&height=373" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab_Semmarine_Fez.jpg?width=960&height=373?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Bab_Semmarine_Fez.jpg"
     },
@@ -98,7 +98,7 @@ const MONUMENTS = [
     lat: 34.057222,
     lon: -4.979722,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab_Hadid.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab_Hadid.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Bab_Hadid.jpg"
 
@@ -130,7 +130,7 @@ const MONUMENTS = [
     lat: 34.058611,
     lon: -4.991389,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fez_%281983%29_03.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fez_%281983%29_03.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Fez_%281983%29_03.jpg"
     },
@@ -149,7 +149,7 @@ const MONUMENTS = [
     lat: 34.06,
     lon: -4.964444,
    image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab_Ftouh.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab_Ftouh.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Bab_Ftouh.jpg"
     },
@@ -168,7 +168,7 @@ const MONUMENTS = [
     lat: 34.0625,
     lon: -4.985556,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab_mahrouk.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab_mahrouk.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Bab_mahrouk.jpg"
     },
@@ -187,7 +187,7 @@ const MONUMENTS = [
     lat: 34.064167,
     lon: -4.9725,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Place_es_Seffarine_%28588955430%29.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Place_es_Seffarine_%28588955430%29.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Place_es_Seffarine_%28588955430%29.jpg"
     },
@@ -206,7 +206,7 @@ const MONUMENTS = [
     lat: 34.062222,
     lon: -4.985556,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab_Chorfa_IMG_3416_%287132378707%29.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab_Chorfa_IMG_3416_%287132378707%29.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Bab_Chorfa_IMG_3416_%287132378707%29.jpg"
     },
@@ -225,7 +225,7 @@ const MONUMENTS = [
     lat: 34.051389,
     lon: -4.994167,
     image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab%20al-amer.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bab%20al-amer.jpg?width=960",
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Bab_al-amer.jpg"
     },
@@ -254,7 +254,7 @@ const MONUMENTS = [
     lat: 34.06,
     lon: -4.9925,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A2b_Segma_de_F%C3%A8s_el_J%C3%A9did_-_A818.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A2b_Segma_de_F%C3%A8s_el_J%C3%A9did_-_A818.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:B%C3%A2b_Segma_de_F%C3%A8s_el_J%C3%A9did_-_A818.jpg"
     },
@@ -272,7 +272,7 @@ const MONUMENTS = [
     lat: 34.068889,
     lon: -4.975833,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fes_-_Gate.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fes_-_Gate.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Fes_-_Gate.jpg"
     },
@@ -303,7 +303,7 @@ const MONUMENTS = [
     lat: 34.0625,
     lon: -4.9725,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Medina_of_Fes%2C_Marocco.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Medina_of_Fes%2C_Marocco.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Medina_of_Fes%2C_Marocco.jpg"
     },
@@ -322,7 +322,7 @@ const MONUMENTS = [
     lat: 34.064167,
     lon: -4.973889,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D9%85%D8%AF%D8%B1%D8%B3%D8%A9_%D8%A7%D9%84%D8%B4%D8%B1%D8%A7%D8%B7%D9%8A%D9%86_%D8%A8%D9%81%D8%A7%D8%B3.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D9%85%D8%AF%D8%B1%D8%B3%D8%A9_%D8%A7%D9%84%D8%B4%D8%B1%D8%A7%D8%B7%D9%8A%D9%86_%D8%A8%D9%81%D8%A7%D8%B3.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:%D9%85%D8%AF%D8%B1%D8%B3%D8%A9_%D8%A7%D9%84%D8%B4%D8%B1%D8%A7%D8%B7%D9%8A%D9%86_%D8%A8%D9%81%D8%A7%D8%B3.jpg"
     },
@@ -340,7 +340,7 @@ const MONUMENTS = [
     lat: 34.069167,
     lon: -4.974167,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/29610-Fez_%2828134041211%29_%28Jamai_crop%29.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/29610-Fez_%2828134041211%29_%28Jamai_crop%29.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:29610-Fez_%2828134041211%29_%28Jamai_crop%29.jpg"
     },
@@ -358,7 +358,7 @@ const MONUMENTS = [
     lat: 34.067222,
     lon: -4.985,
    image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/BurjNord.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/BurjNord.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:BurjNord.jpg"
     },
@@ -376,7 +376,7 @@ const MONUMENTS = [
     lat: 34.062222,
     lon: -4.982778,
     image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bou%20Inania%20Madrasa%202011.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bou%20Inania%20Madrasa%202011.jpg?width=960",
       credit: "Photo : Wikimedia Commons (CC BY-SA)",
       creditUrl: "https://commons.wikimedia.org/wiki/Category:Bou_Inania_Madrasa,_Fes"
     },
@@ -394,7 +394,7 @@ const MONUMENTS = [
     lat: 34.060556,
     lon: -4.982778,
   image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Batha_Museum_%284317468784%29.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Batha_Museum_%284317468784%29.jpg?width=960",
       credit: "Photo : Wikimedia Commons (CC BY-SA)",
       creditUrl: "https://commons.wikimedia.org/wiki/Category:Batha_Museum_%284317468784%29.jpg"
     },
@@ -413,7 +413,7 @@ const MONUMENTS = [
     lat: 34.065116,
     lon: -4.973406,
   image: {
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Quaraouiyine%2CF%C3%A8z_Morroco._2.jpg" ,
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Quaraouiyine%2CF%C3%A8z_Morroco._2.jpg?width=960" ,
       credit: "Photo : Wikimedia Commons (licence à vérifier sur la page du fichier)",
       creditUrl: "https://commons.wikimedia.org/wiki/File:Quaraouiyine%2CF%C3%A8z_Morroco._2.jpg"
     },
@@ -430,7 +430,7 @@ const MONUMENTS = [
     lat: 34.065278,
     lon: -4.973611,
     image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Medresa%20Al-Attarin(js)3.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Medresa%20Al-Attarin(js)3.jpg?width=960",
       credit: "Photo : Wikimedia Commons (CC BY-SA)",
       creditUrl: "https://commons.wikimedia.org/wiki/Category:Al-Attarine_Madrasa"
     },
@@ -447,7 +447,7 @@ const MONUMENTS = [
     lat: 34.063056,
     lon: -4.968611,
   image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sahrij_Medersa%2C_Fes%2C_Morocco-1.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sahrij_Medersa%2C_Fes%2C_Morocco-1.jpg?width=960",
       credit: "Photo : Wikimedia Commons (CC BY-SA)",
       creditUrl: "https://commons.wikimedia.org/wiki/Sahrij_Medersa%2C_Fes%2C_Morocco-1.jpg"
     },
@@ -465,7 +465,7 @@ const MONUMENTS = [
     lon: -4.968126,
 
   image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Andalous_mosque_portal.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Andalous_mosque_portal.jpg?width=960",
       credit: "Photo : Wikimedia Commons (CC BY-SA)",
       creditUrl: "https://commons.wikimedia.org/wiki/Andalous_mosque_portal.jpg"
     },
@@ -484,7 +484,7 @@ const MONUMENTS = [
     lat: 34.063056,
     lon: -4.968333,
   image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Medina_of_Fez_082023_028.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Medina_of_Fez_082023_028.jpg?width=960",
       credit: "Photo : Wikimedia Commons (CC BY-SA)",
       creditUrl: "https://commons.wikimedia.org/wiki/Medina_of_Fez_082023_028.jpg"
     },
@@ -502,7 +502,7 @@ const MONUMENTS = [
     lat: 34.053972,
     lon: -4.970250,
   image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Borj_sud1.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Borj_sud1.jpg?width=960",
       credit: "Photo : Wikimedia Commons (CC BY-SA)",
       creditUrl: "https://commons.wikimedia.org/wiki/Borj_sud1.jpg"
     },
@@ -520,7 +520,7 @@ const MONUMENTS = [
     lat: 34.058278,
     lon: -4.986806,
   image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Jnan_sbil_2.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Jnan_sbil_2.jpg?width=960",
       credit: "Photo : Wikimedia Commons (CC BY-SA)",
       creditUrl: "https://commons.wikimedia.org/wiki/Jnan_sbil_2.jpg"
     },
@@ -538,7 +538,7 @@ const MONUMENTS = [
     lat: 34.066167,
     lon: -4.971167,
   image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Chouara_Tannery_-_155_-_Marokko_Handybilder_2018_-_Fes_%2827347719327%29.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Chouara_Tannery_-_155_-_Marokko_Handybilder_2018_-_Fes_%2827347719327%29.jpg?width=960",
       credit: "Photo : Wikimedia Commons (CC BY-SA)",
       creditUrl: "https://commons.wikimedia.org/wiki/Chouara_Tannery_-_155_-_Marokko_Handybilder_2018_-_Fes_%2827347719327%29.jpg"
     },
@@ -570,7 +570,7 @@ const MONUMENTS = [
     lon: -4.975961,
 
    image: {
-      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Medina_Fez_7.jpg?width=900",
+      url: "https://commons.wikimedia.org/wiki/Special:FilePath/Medina_Fez_7.jpg?width=960",
       credit: "Photo : Wikimedia Commons (CC BY-SA)",
       creditUrl: "https://commons.wikimedia.org/wiki/Medina_Fez_7.jpg"
     },
