@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Monument — Fès el-Bali</title>
+<script>
+  (function () {
+    var lang = localStorage.getItem("fes-lang") === "ar" ? "ar" : "fr";
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  })();
+</script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=4">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="40" height="40"><use href="#zellige-star"></use></svg>
+      </span>
+      <div class="brand-text">
+        <h1><span data-i18n="brand_1">Fès</span>&nbsp;<span class="accent" data-i18n="brand_2">el-Bali</span></h1>
+        <p data-i18n="tagline">Monuments historiques &amp; itinéraires depuis Bab Boujloud</p>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html#carte" data-i18n="nav_map">Carte</a>
+      <a href="index.html#liste" data-i18n="nav_monuments">Monuments</a>
+      <a href="#" id="lang-toggle" class="lang-toggle">العربية</a>
+    </nav>
+  </div>
+</header>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="zellige-star">
+      <path d="M24 2 L29 17 L45 17 L32 27 L37 43 L24 33 L11 43 L16 27 L3 17 L19 17 Z" fill="currentColor"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="breadcrumb">
+  <a href="index.html" data-i18n="breadcrumb_back">← Retour à la liste des monuments</a>
+</div>
+
+<main class="monument-page">
+  <section class="monument-intro">
+    <span id="m-categorie" class="badge">Catégorie</span>
+    <h2 id="m-nom">Nom du monument</h2>
+
+    <figure id="m-photo-figure" class="monument-photo">
+      <img id="m-photo" src="" alt="" hidden>
+      <div id="m-photo-placeholder" class="photo-placeholder">
+        <svg viewBox="0 0 48 48" width="34" height="34" aria-hidden="true">
+          <path d="M24 2 L29 17 L45 17 L32 27 L37 43 L24 33 L11 43 L16 27 L3 17 L19 17 Z" fill="currentColor"/>
+        </svg>
+        <p data-i18n="photo_placeholder">Photo à ajouter</p>
+      </div>
+      <figcaption id="m-photo-credit" class="photo-credit"></figcaption>
+    </figure>
+
+    <div id="m-description" class="monument-description">
+      <p>Description…</p>
+    </div>
+    <p id="m-coords" class="monument-coords"></p>
+  </section>
+
+  <section class="route-section">
+    <div class="section-heading">
+      <span class="section-number">→</span>
+      <h3 data-i18n="route_section_title">Itinéraire à pied depuis Bab Boujloud</h3>
+    </div>
+    <p class="route-hint" data-i18n="route_hint">
+      Le calcul d'itinéraire piéton est fourni à titre indicatif ; la médina
+      compte de nombreuses ruelles trop étroites pour être toutes cartographiées.
+    </p>
+    <p id="route-summary" class="route-summary">Calcul de l'itinéraire à pied en cours…</p>
+    <div id="route-map" class="leaflet-map"></div>
+  </section>
+
+  <section id="not-found" class="not-found" hidden>
+    <h2 data-i18n="not_found_title">Monument introuvable</h2>
+    <p data-i18n="not_found_text">Le lien utilisé ne correspond à aucune fiche. Retournez à la liste des monuments.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footer_line">Site pédagogique des monuments historiques de Fès — hébergement local XAMPP.</p>
+  <p class="footer-author">
+    <span data-i18n="footer_author_label">Auteur : </span><strong>Mr Ghazi Aziz</strong><span data-i18n="footer_contact_label"> — Contact : </span><a href="mailto:aziz.ghazi40@gmail.com">aziz.ghazi40@gmail.com</a>
+  </p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+<script src="js/data.js?v=4"></script>
+<script src="js/i18n.js?v=4"></script>
+<script src="js/monument.js?v=4"></script>
+</body>
+</html>
