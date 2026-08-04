@@ -245,6 +245,48 @@ td.mon-link { text-align: right; }
 .monument-description { font-size: 1.03rem; color: var(--ink); }
 .monument-description p { margin: 0 0 14px; }
 .monument-description p:last-child { margin-bottom: 0; }
+
+/* ---------- Photo du monument ---------- */
+.monument-photo {
+  margin: 18px 0 22px;
+}
+.monument-photo img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  background: var(--parchment-deep);
+  display: block;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 24px rgba(11,63,92,0.15);
+}
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 220px;
+  background: var(--parchment-deep);
+  border: 1px dashed var(--line);
+  color: var(--ink-soft);
+}
+.photo-placeholder svg { color: var(--terracotta); }
+.photo-placeholder p { margin: 0; font-size: 0.9rem; font-style: italic; }
+
+/* L'attribut HTML "hidden" doit toujours l'emporter sur les display:block/flex
+   ci-dessus, sinon l'élément reste visible même quand le script le masque. */
+.monument-photo img[hidden],
+.photo-placeholder[hidden] {
+  display: none !important;
+}
+.photo-credit {
+  margin: 6px 2px 0;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  text-align: right;
+}
+.photo-credit a { color: var(--ink-soft); }
 .monument-coords {
   font-size: 0.85rem;
   color: var(--ink-soft);
@@ -277,6 +319,8 @@ td.mon-link { text-align: right; }
   color: var(--ink);
   box-shadow: 0 4px 14px rgba(11,63,92,0.15);
   max-width: 320px;
+  position: relative;
+  padding-top: 6px;
 }
 .leaflet-routing-container h2, .leaflet-routing-container h3 {
   font-family: var(--font-display);
@@ -284,6 +328,41 @@ td.mon-link { text-align: right; }
 }
 .leaflet-routing-alt { max-height: 260px; }
 .leaflet-routing-geocoders { display: none; } /* pas de recherche libre : le point de départ est fixé à Bab Boujloud */
+
+.routing-close {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  z-index: 20;
+  width: 24px;
+  height: 24px;
+  line-height: 22px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  background: var(--parchment-deep);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  text-decoration: none;
+  cursor: pointer;
+}
+.routing-close:hover { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
+
+.routing-reopen-wrap { margin: 10px; }
+.routing-reopen {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--fes-blue-deep);
+  border: none;
+  padding: 7px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(11,63,92,0.3);
+}
+.routing-reopen:hover { background: var(--terracotta); }
 
 .not-found { text-align: center; padding: 60px 0; }
 .not-found h2 { font-family: var(--font-display); color: var(--terracotta-deep); }
@@ -343,4 +422,63 @@ td.mon-link { text-align: right; }
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+}
+
+/* =========================================================
+   Bouton de bascule de langue
+   ========================================================= */
+.lang-toggle {
+  border: 1px solid rgba(246,240,228,0.5);
+  border-radius: 999px;
+  padding: 4px 14px !important;
+  font-size: 0.8rem !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+.lang-toggle:hover { background: var(--terracotta); border-color: var(--terracotta); }
+
+/* =========================================================
+   Mode arabe (RTL) — polices, alignements, mise en miroir
+   ========================================================= */
+html[dir="rtl"] body { font-family: 'Cairo', 'Work Sans', sans-serif; }
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] .brand-text h1 {
+  font-family: 'Amiri', 'Cormorant Garamond', serif;
+}
+
+html[dir="rtl"] .header-inner { flex-direction: row-reverse; }
+html[dir="rtl"] .brand { flex-direction: row-reverse; }
+html[dir="rtl"] .header-nav { flex-direction: row-reverse; }
+
+html[dir="rtl"] .hero-inner { text-align: right; }
+html[dir="rtl"] .hero-lede { margin-inline: 0; }
+
+html[dir="rtl"] .section-heading { flex-direction: row-reverse; }
+
+html[dir="rtl"] thead th { text-align: right; }
+html[dir="rtl"] th.th-link,
+html[dir="rtl"] td.mon-link { text-align: left; }
+html[dir="rtl"] td.mon-coords { direction: ltr; text-align: right; }
+
+html[dir="rtl"] .breadcrumb { text-align: right; }
+html[dir="rtl"] .monument-coords { direction: ltr; text-align: right; }
+
+html[dir="rtl"] .badge { direction: rtl; }
+
+html[dir="rtl"] .footer-author { direction: rtl; }
+html[dir="rtl"] .photo-credit { text-align: left; }
+
+/* La carte Leaflet et ses commandes restent en orientation gauche-à-droite
+   (Leaflet ne prend pas en charge le RTL nativement) ; seul le contenu
+   éditorial autour de la carte est mis en miroir. */
+html[dir="rtl"] .leaflet-map,
+html[dir="rtl"] .leaflet-container {
+  direction: ltr;
+}
+
+html[dir="rtl"] .route-hint,
+html[dir="rtl"] .route-summary {
+  text-align: right;
 }
