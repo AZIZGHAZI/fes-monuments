@@ -1,4 +1,4 @@
-/* Page fiche monument : détail + itinéraire piéton depuis Bab Boujloud */
+/* Page fiche monument : détail + itinéraire piéton depuis Bab Boujloud (FR/AR) */
 (function () {
   "use strict";
 
@@ -17,14 +17,16 @@
     introEl.hidden = true;
     routeEl.hidden = true;
     notFoundEl.hidden = false;
-    document.title = "Monument introuvable — Fès el-Bali";
+    document.title = t("not_found_title") + t("title_suffix");
     return;
   }
 
+  var name = monumentName(monument);
+
   // ---- Remplissage de la fiche ----
-  document.getElementById("page-title").textContent = monument.nom + " — Fès el-Bali";
-  document.getElementById("m-categorie").textContent = monument.categorie;
-  document.getElementById("m-nom").textContent = monument.nom;
+  document.getElementById("page-title").textContent = name + t("title_suffix");
+  document.getElementById("m-categorie").textContent = categoryLabel(monument.categorie);
+  document.getElementById("m-nom").textContent = name;
 
   // ---- Photo du monument (ou repli si aucune photo n'est renseignée) ----
   var photoImg = document.getElementById("m-photo");
@@ -32,7 +34,7 @@
   var photoCredit = document.getElementById("m-photo-credit");
   if (monument.image && monument.image.url) {
     photoImg.src = monument.image.url;
-    photoImg.alt = monument.nom;
+    photoImg.alt = name;
     photoImg.hidden = false;
     photoImg.onerror = function () {
       // L'image n'a pas pu être chargée (pas de connexion, fichier déplacé…) : repli propre.
@@ -54,9 +56,7 @@
 
   var descContainer = document.getElementById("m-description");
   descContainer.innerHTML = "";
-  var paragraphs = Array.isArray(monument.description)
-    ? monument.description
-    : [monument.description];
+  var paragraphs = monumentDescription(monument);
   paragraphs.forEach(function (paragraphText) {
     var p = document.createElement("p");
     p.textContent = paragraphText;
@@ -64,22 +64,21 @@
   });
 
   document.getElementById("m-coords").textContent =
-    "Coordonnées : " + monument.lat.toFixed(5) + ", " + monument.lon.toFixed(5);
+    (getLang() === "ar" ? "الإحداثيات: " : "Coordonnées : ") + monument.lat.toFixed(5) + ", " + monument.lon.toFixed(5);
 
   // Cas particulier : la fiche EST Bab Boujloud, le point de départ lui-même
   if (monument.id === BAB_BOUJLOUD.id) {
     var hint = document.querySelector(".route-hint");
-    hint.textContent =
-      "Bab Boujloud est le point de départ de référence : c'est ici que commencent tous les itinéraires du site.";
+    hint.textContent = t("route_start_hint");
     var summaryStart = document.getElementById("route-summary");
-    if (summaryStart) summaryStart.textContent = "Vous êtes au point de départ : distance 0 km.";
+    if (summaryStart) summaryStart.textContent = t("route_start_summary");
     document.getElementById("route-map").innerHTML = "";
     var map = L.map("route-map").setView([monument.lat, monument.lon], 17);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    L.marker([monument.lat, monument.lon]).addTo(map).bindPopup(monument.nom).openPopup();
+    L.marker([monument.lat, monument.lon]).addTo(map).bindPopup(name).openPopup();
     return;
   }
 
@@ -125,13 +124,20 @@
 
   function formatDuree(minutesTotal) {
     var m = Math.round(minutesTotal);
-    if (m < 60) return m + " min";
+    if (m < 60) return m + " " + t("duration_min");
     var h = Math.floor(m / 60);
     var reste = m % 60;
-    return h + " h" + (reste ? " " + reste + " min" : "");
+    return h + " " + t("duration_hour") + (reste ? " " + reste + " " + t("duration_min") : "");
   }
 
   var summaryEl = document.getElementById("route-summary");
+  summaryEl.textContent = t("route_calculating");
+  // Remarque : Leaflet Routing Machine ne fournit pas de pack de langue "ar"
+  // pour ses instructions internes (virage à gauche, etc.) ; lui passer "ar"
+  // provoque une erreur silencieuse et bascule systématiquement sur le repli
+  // en ligne droite. On force donc toujours "fr" ici — seul le résumé que
+  // nous affichons nous-mêmes (distance/durée) reste, lui, traduit en arabe.
+  var routingLang = "fr";
 
   // Tente d'utiliser le service de calcul d'itinéraire piéton (serveur OSRM
   // dédié « à pied » de FOSSGIS/OpenStreetMap.de). En cas d'échec (pas de
@@ -150,7 +156,7 @@
       }),
       createMarker: function (i, wp) {
         return L.marker(wp.latLng, { icon: i === 0 ? startIcon : endIcon }).bindPopup(
-          i === 0 ? "Départ : Bab Boujloud" : "Arrivée : " + monument.nom
+          i === 0 ? t("dep_label") + "Bab Boujloud" : t("arr_label") + name
         );
       },
       lineOptions: { styles: [{ color: "#c1622d", weight: 5, opacity: 0.85 }] },
@@ -159,17 +165,17 @@
       fitSelectedRoutes: true,
       show: true,
       collapsible: false,
-      language: "fr"
+      language: routingLang
     });
     control.on("routesfound", function (e) {
       var route = e.routes[0];
       if (summaryEl && route && route.summary) {
         summaryEl.textContent =
-          "À pied depuis Bab Boujloud : environ " +
+          t("route_found_prefix") +
           (route.summary.totalDistance / 1000).toFixed(1) +
-          " km, soit " +
+          t("route_found_middle") +
           formatDuree(route.summary.totalTime / 60) +
-          " de marche.";
+          t("route_found_suffix");
       }
     });
     control.on("routingerror", function () {
@@ -190,8 +196,8 @@
     var closeBtn = document.createElement("a");
     closeBtn.href = "#";
     closeBtn.className = "routing-close";
-    closeBtn.setAttribute("aria-label", "Fermer la fenêtre d'itinéraire");
-    closeBtn.setAttribute("title", "Fermer");
+    closeBtn.setAttribute("aria-label", t("routing_close_title"));
+    closeBtn.setAttribute("title", t("routing_close_title"));
     closeBtn.innerHTML = "&times;";
     container.insertBefore(closeBtn, container.firstChild);
 
@@ -200,7 +206,7 @@
       var wrap = L.DomUtil.create("div", "routing-reopen-wrap");
       var btn = L.DomUtil.create("button", "routing-reopen", wrap);
       btn.type = "button";
-      btn.textContent = "Afficher l'itinéraire";
+      btn.textContent = t("routing_reopen_label");
       wrap.hidden = true;
       L.DomEvent.disableClickPropagation(wrap);
       L.DomEvent.on(btn, "click", function () {
@@ -223,10 +229,10 @@
   function fallbackStraightLine() {
     L.marker([BAB_BOUJLOUD.lat, BAB_BOUJLOUD.lon], { icon: startIcon })
       .addTo(routeMap)
-      .bindPopup("Départ : Bab Boujloud");
+      .bindPopup(t("dep_label") + "Bab Boujloud");
     L.marker([monument.lat, monument.lon], { icon: endIcon })
       .addTo(routeMap)
-      .bindPopup("Arrivée : " + monument.nom);
+      .bindPopup(t("arr_label") + name);
     var line = L.polyline(
       [
         [BAB_BOUJLOUD.lat, BAB_BOUJLOUD.lon],
@@ -240,14 +246,13 @@
       var vol = distanceMetres(BAB_BOUJLOUD.lat, BAB_BOUJLOUD.lon, monument.lat, monument.lon);
       var minutesEstimees = (vol / 1000 / 4.5) * 60; // vitesse de marche moyenne 4,5 km/h
       summaryEl.textContent =
-        "Itinéraire piéton indisponible pour le moment (connexion Internet requise) : " +
-        "à vol d'oiseau, " +
-        monument.nom +
-        " se trouve à environ " +
+        t("route_unavailable_prefix") +
+        name +
+        t("route_unavailable_middle") +
         (vol / 1000).toFixed(1) +
-        " km de Bab Boujloud, soit environ " +
+        t("route_unavailable_middle2") +
         formatDuree(minutesEstimees) +
-        " de marche dans la médina.";
+        t("route_unavailable_suffix");
     }
   }
 })();

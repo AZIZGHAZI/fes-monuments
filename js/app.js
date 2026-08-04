@@ -1,4 +1,4 @@
-/* Page d'accueil : carte générale + tableau des monuments */
+/* Page d'accueil : carte générale + tableau des monuments (FR/AR) */
 (function () {
   "use strict";
 
@@ -33,13 +33,14 @@
 
   MONUMENTS.forEach(function (m) {
     var isStart = m.id === BAB_BOUJLOUD.id;
+    var name = monumentName(m);
     var marker = L.marker([m.lat, m.lon], {
       icon: isStart ? boujloudIcon : icon,
-      title: m.nom
+      title: name
     }).addTo(map);
 
     marker
-      .bindTooltip(m.nom, {
+      .bindTooltip(name, {
         permanent: true,
         direction: "right",
         offset: [10, 0],
@@ -49,32 +50,35 @@
 
     marker.bindPopup(
       '<p class="popup-cat">' +
-        m.categorie +
+        categoryLabel(m.categorie) +
         "</p>" +
         '<p class="popup-title">' +
-        m.nom +
+        name +
         "</p>" +
         '<a class="popup-link" href="monument.html?id=' +
         encodeURIComponent(m.id) +
-        '">Voir la fiche →</a>'
+        '">' +
+        t("link_voir_fiche") +
+        "</a>"
     );
   });
 
   // ---- Tableau ----
   var tbody = document.querySelector("#monuments-table tbody");
+  var lang = getLang();
   var rows = MONUMENTS.slice()
-    .sort(function (a, b) { return a.nom.localeCompare(b.nom, "fr"); })
+    .sort(function (a, b) { return monumentName(a).localeCompare(monumentName(b), lang); })
     .map(function (m) {
       var tr = document.createElement("tr");
 
       var tdName = document.createElement("td");
       tdName.className = "mon-name";
-      tdName.textContent = m.nom;
+      tdName.textContent = monumentName(m);
 
       var tdCat = document.createElement("td");
       var badge = document.createElement("span");
       badge.className = "mon-badge";
-      badge.textContent = m.categorie;
+      badge.textContent = categoryLabel(m.categorie);
       tdCat.appendChild(badge);
 
       var tdCoords = document.createElement("td");
@@ -85,7 +89,7 @@
       tdLink.className = "mon-link";
       var a = document.createElement("a");
       a.href = "monument.html?id=" + encodeURIComponent(m.id);
-      a.textContent = "Voir la fiche →";
+      a.textContent = t("link_voir_fiche");
       tdLink.appendChild(a);
 
       tr.appendChild(tdName);
